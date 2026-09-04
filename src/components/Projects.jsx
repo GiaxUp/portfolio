@@ -44,7 +44,7 @@ export default function Projects({ openModal, setOpenModal }) {
           {filtered.map((project) => (
             <div
               key={project.id}
-              className="project-card reveal"
+              className="project-card"
               onClick={() => setOpenModal({ state: true, project })}
             >
               <div className="project-card__image-wrapper">
