@@ -1,0 +1,219 @@
+/* ── Project Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+  overflow-y: auto;
+  opacity: 0;
+  animation: modal-fade-in 0.3s var(--ease-out) forwards;
+}
+
+@keyframes modal-fade-in {
+  to { opacity: 1; }
+}
+
+.modal {
+  width: 100%;
+  max-width: 780px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  position: relative;
+  transform: scale(0.95) translateY(10px);
+  animation: modal-scale-in 0.35s var(--ease-spring) forwards;
+}
+
+@keyframes modal-scale-in {
+  to {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.modal__close:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border-color: var(--border-accent);
+}
+
+.modal__image {
+  width: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  margin-bottom: 20px;
+  max-height: 380px;
+}
+
+.modal__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.modal__date {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+}
+
+.modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.modal__desc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* ── Members ── */
+.modal__members-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.modal__members {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.modal__member {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal__member-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-subtle);
+}
+
+.modal__member-name {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.modal__member-links {
+  display: flex;
+  gap: 8px;
+}
+
+.modal__member-link {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.modal__member-link:hover {
+  color: var(--accent-light);
+  border-color: var(--border-accent);
+}
+
+.modal__member-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Buttons ── */
+.modal__buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.modal__btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.modal__btn--primary {
+  background: var(--accent);
+  color: white;
+}
+
+.modal__btn--primary:hover {
+  background: var(--accent-light);
+  box-shadow: var(--shadow-glow-sm);
+  transform: translateY(-2px);
+}
+
+.modal__btn--secondary {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.modal__btn--secondary:hover {
+  color: var(--text-primary);
+  border-color: var(--border-accent);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .modal {
+    padding: 20px;
+  }
+
+  .modal__buttons {
+    flex-direction: column;
+  }
+
+  .modal__title {
+    font-size: 1.25rem;
+  }
+}
